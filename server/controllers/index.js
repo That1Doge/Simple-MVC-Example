@@ -127,7 +127,7 @@ const updateLast = (req, res) => {
 	const updatePromise = Cat.findOneAndUpdate(
     {},
     { $inc: {bedsOwned: 1}},
-    { sort: {createdDate: 'descending'}},
+    { returnDocument: 'after', sort: {createdDate: 'descending'}},
   ).lean().exec();
 
   updatePromise
